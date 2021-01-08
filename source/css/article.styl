@@ -86,15 +86,27 @@ article a {
 	transition: all .35s ease-out;
 	color: #ff4e6a;
 	text-decoration: none;
-	word-wrap: break-word
+	word-wrap: break-word;
+	position: relative;
+}
+
+article a::after {
+    -webkit-transition: width .35s ease-out;
+    transition: width .35s ease-out;
+    content: "";
+    right: 0;
+    width: 0;
+    bottom: -2px;
+    position: absolute;
+    border-bottom: 1px solid;
+}
+article a:hover::after {
+    left: 0;
+    width: 100%;
 }
 
 article a:hover, article a:focus {
 	color: #ff4e6a
-}
-
-article a:hover {
-	text-decoration: underline;
 }
 
 article p {
