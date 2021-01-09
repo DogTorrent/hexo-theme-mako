@@ -134,10 +134,11 @@ gitment:
 valine: 
   appId: <API_ID> # leancloud application app id
   appKey: <API_Key> # leancloud application app key
-  visitor: false 
-  placeholder: 此处留言~ 填写邮箱可以接收回复提醒
-  verify: true # 验证码
-  recordIP: true
+  visitor: false # 文章访问量统计
+  requiredFields: [nick,mail] #设置必填项，v1.4.6+可用
+  placeholder: 此处留言~ 填写邮箱可以接收回复提醒 # 评论框占位提示符
+  verify: true # 验证码服务，v1.4.0+ 已废弃
+  recordIP: false # 是否记录评论者IP，开启有可能会导致变慢
 
 disqus:
   shortname: <shortname> # 你的 Disqus shortname
