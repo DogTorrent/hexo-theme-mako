@@ -30,35 +30,34 @@
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
 
   <% var cdnCombineStr = "" %>
-
-  <% if (theme.cdn.mdui.jsdCombine.css){ %>
-    <% if (!cdnCombineStr){ %>
-      <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.mdui.jsdCombine.css %>
-    <% } else{ %>
-      <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.mdui.jsdCombine.css %>
-    <% } %>
-  <% } else{ %>
+  <% if (theme.cdn.mdui.jsdCombine.css) {
+    if (!cdnCombineStr) {
+      cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.mdui.jsdCombine.css
+    } else { 
+      cdnCombineStr = cdnCombineStr + "," + theme.cdn.mdui.jsdCombine.css
+    } 
+  } else { %>
     <link rel="stylesheet" href="<%- theme.cdn.mdui.css %>" crossorigin>
   <% } %>
 
-  <% if (theme.cdn.highlight.jsdCombine.css) { %>
-    <% if (!cdnCombineStr) { %>
-     <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.highlight.jsdCombine.css %>
-    <% } else{ %>
-     <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.highlight.jsdCombine.css %>
-    <% } %>
-  <% } else { %>
-   <link rel="stylesheet" href="<%- theme.cdn.highlight.css %>" crossorigin>
+  <% if (theme.cdn.highlight.jsdCombine.css) {
+    if (!cdnCombineStr) {
+      cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.highlight.jsdCombine.css
+    } else { 
+      cdnCombineStr = cdnCombineStr + "," + theme.cdn.highlight.jsdCombine.css
+    } 
+  } else { %>
+    <link rel="stylesheet" href="<%- theme.cdn.highlight.css %>" crossorigin>
   <% } %>
 
-  <% if (theme.cdn.fancybox.jsdCombine.css) { %>
-    <% if (!cdnCombineStr) { %>
-     <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.fancybox.jsdCombine.css %>
-    <% } else{ %>
-     <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.fancybox.jsdCombine.css %>
-    <% } %>
-  <% } else { %>
-   <link rel="stylesheet" href="<%- theme.cdn.fancybox.css %>" crossorigin>
+  <% if (theme.cdn.fancybox.jsdCombine.css) {
+    if (!cdnCombineStr) {
+      cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.fancybox.jsdCombine.css
+    } else { 
+      cdnCombineStr = cdnCombineStr + "," + theme.cdn.fancybox.jsdCombine.css
+    } 
+  } else { %>
+    <link rel="stylesheet" href="<%- theme.cdn.fancybox.css %>" crossorigin>
   <% } %>
 
   <% if (cdnCombineStr) { %>

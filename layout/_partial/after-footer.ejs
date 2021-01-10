@@ -1,52 +1,52 @@
 <% var cdnCombineStr = "" %>
 
-<% if (theme.cdn.mdui.jsdCombine.js){ %>
-  <% if (!cdnCombineStr){ %>
-    <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.mdui.jsdCombine.js %>
-  <% } else{ %>
-    <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.mdui.jsdCombine.js %>
-  <% } %>
-<% } else{ %>
+<% if (theme.cdn.mdui.jsdCombine.js) {
+  if (!cdnCombineStr) {
+    cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.mdui.jsdCombine.js
+  } else {
+    cdnCombineStr = cdnCombineStr + "," + theme.cdn.mdui.jsdCombine.js
+  }
+} else { %>
   <script src="<%- theme.cdn.mdui.js %>"></script>
 <% } %>
 
-<% if (theme.cdn.highlight.jsdCombine.js) { %>
-  <% if (!cdnCombineStr) { %>
-    <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.highlight.jsdCombine.js %>
-  <% } else{ %>
-    <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.highlight.jsdCombine.js %>
-  <% } %>
-<% } else { %>
+<% if (theme.cdn.highlight.jsdCombine.js) {
+  if (!cdnCombineStr) {
+    cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.highlight.jsdCombine.js
+  } else {
+    cdnCombineStr = cdnCombineStr + "," + theme.cdn.highlight.jsdCombine.js
+  }
+} else { %>
   <script src="<%- theme.cdn.highlight.js %>"></script>
 <% } %>
 
-<% if (theme.cdn.lazysizes.jsdCombine.js) { %>
-  <% if (!cdnCombineStr) { %>
-    <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.lazysizes.jsdCombine.js %>
-  <% } else{ %>
-    <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.lazysizes.jsdCombine.js %>
-  <% } %>
-<% } else { %>
+<% if (theme.cdn.lazysizes.jsdCombine.js) {
+  if (!cdnCombineStr) {
+    cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.lazysizes.jsdCombine.js
+  } else {
+    cdnCombineStr = cdnCombineStr + "," + theme.cdn.lazysizes.jsdCombine.js
+  }
+} else { %>
   <script src="<%- theme.cdn.lazysizes.js %>"></script>
 <% } %>
 
-<% if (theme.cdn.fancybox.jsdCombine.js) { %>
-  <% if (!cdnCombineStr) { %>
-    <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.fancybox.jsdCombine.js %>
-  <% } else { %>
-    <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.fancybox.jsdCombine.js %>
-  <% } %>
-<% } else { %>
+<% if (theme.cdn.fancybox.jsdCombine.js) {
+  if (!cdnCombineStr) {
+    cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.fancybox.jsdCombine.js
+  } else {
+    cdnCombineStr = cdnCombineStr + "," + theme.cdn.fancybox.jsdCombine.js
+  }
+} else { %>
   <script src="<%- theme.cdn.fancybox.js %>"></script>
 <% } %>
 
-<% if (theme.cdn.jquery.jsdCombine.js) { %>
-  <% if (!cdnCombineStr){ %>
-    <% cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.jquery.jsdCombine.js %>
-  <% } else { %>
-    <% cdnCombineStr = cdnCombineStr + "," + theme.cdn.jquery.jsdCombine.js %>
-  <% } %>
-<% } else { %>
+<% if (theme.cdn.jquery.jsdCombine.js) {
+  if (!cdnCombineStr) {
+    cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + theme.cdn.jquery.jsdCombine.js
+  } else {
+    cdnCombineStr = cdnCombineStr + "," + theme.cdn.jquery.jsdCombine.js
+  }
+} else { %>
   <script src="<%- theme.cdn.jquery.js %>"></script>
 <% } %>
 
