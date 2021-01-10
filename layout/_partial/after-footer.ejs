@@ -18,5 +18,6 @@ for (let jsStr of jsList) {
 <% if (cdnCombineStr) { -%>
   <script src="<%- cdnCombineStr %>"></script>
 <% } -%>
+<script src="/js/ejs.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <%- js_auto_version('js/app') %>
