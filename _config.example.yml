@@ -19,29 +19,16 @@ cdn: # 这里可以修改站点使用的库的CDN
   mdui:
     css: https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css
     js: https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js
-    jsdCombine:  # jsdelivr的合并加速，下同
-      css: npm/mdui@1.0.1/dist/css/mdui.min.css
-      js: npm/mdui@1.0.1/dist/js/mdui.min.js
   lazysizes:
     js: https://cdn.jsdelivr.net/npm/lazysizes@5.3.0/lazysizes.min.js
-    jsdCombine: 
-      js: npm/lazysizes@5.3.0/lazysizes.min.js
   highlight:
     css: https://cdn.jsdelivr.net/npm/highlight.js@10.5.0/styles/darcula.css
     js: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js
-    jsdCombine: 
-      css: npm/highlight.js@10.5.0/styles/darcula.css
-      js: gh/highlightjs/cdn-release@10.5.0/build/highlight.min.js
   fancybox:
     css: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
     js: https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
-    jsdCombine:
-      css: gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
-      js: gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
   jquery:
     js: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js
-    jsdCombine:
-      js: npm/jquery@3.5.1/dist/jquery.slim.min.js
   disqusjs: 
     css: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqusjs.min.css
     js: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqus.min.js
