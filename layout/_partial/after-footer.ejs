@@ -1,7 +1,7 @@
 <%
 var cdnCombineStr = ""
 var regex = new RegExp("https://cdn.jsdelivr.net/")
-var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.fancybox.js, theme.cdn.jquery.js, theme.cdn.copy]
+var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.fancybox.js, theme.cdn.jquery.js]
 for (let jsStr of jsList) {
   if (jsStr) {
       if (regex.test(jsStr)) {
@@ -19,5 +19,7 @@ for (let jsStr of jsList) {
   <script src="<%- cdnCombineStr %>"></script>
 <% } -%>
 <script src="/js/ejs.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<%- js_auto_version('js/app') %>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+<%- js_auto_version('js/app') %>   
