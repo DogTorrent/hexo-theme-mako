@@ -32,17 +32,19 @@
   <% 
   var cdnCombineStr = ""
   var regex = new RegExp("https://cdn.jsdelivr.net/")
-  var cssList = [theme.cdn.mdui.css,theme.cdn.highlight.css,theme.cdn.fancybox.css]
-  for(let cssStr of cssList) {
-    if (regex.test(cssStr)) {
-      if (!cdnCombineStr) {
-        cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + cssStr.replace(regex,"")
-      } else { 
-        cdnCombineStr += cssStr.replace(regex,",")
-      } 
-    } else { %>
-      <link rel="stylesheet" href="<%- cssStr %>" crossorigin>
-    <% }
+  var cssList = [theme.cdn.mdui.css, theme.cdn.highlight.css, theme.cdn.fancybox.css]
+  for (let cssStr of cssList) {
+    if (cssStr) {
+      if (regex.test(cssStr)) {
+        if (!cdnCombineStr) {
+          cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + cssStr.replace(regex,"")
+        } else { 
+          cdnCombineStr += cssStr.replace(regex,",")
+        } 
+      } else { %>
+        <link rel="stylesheet" href="<%- cssStr %>" crossorigin>
+      <% }
+    }
   } %>
   <% if (cdnCombineStr) { %>
     <link rel="stylesheet" href="<%- cdnCombineStr %>" crossorigin>
