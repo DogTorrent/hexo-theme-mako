@@ -32,7 +32,7 @@
   <% 
   var cdnCombineStr = ""
   var regex = new RegExp("https://cdn.jsdelivr.net/")
-  var cssList = [theme.cdn.mdui.css, theme.cdn.highlight.css, theme.cdn.fancybox.css]
+  var cssList = [theme.cdn.highlight.css, theme.cdn.fancybox.css]
   for (let cssStr of cssList) {
     if (cssStr) {
       if (regex.test(cssStr)) {
@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="<%- cdnCombineStr %>" crossorigin>
   <% } -%>
   
-  <link rel="stylesheet" href="https//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" crossorigin>
   <% if (theme.iconlib) { -%>
     <link rel="stylesheet" href="<%= theme.iconlib %>">
   <% } -%>
