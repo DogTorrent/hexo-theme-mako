@@ -148,11 +148,15 @@ body {
         .nexmoe-list-item.active i {
             color: #fff;
         }
+
+        .nexmoe-list-item.active:hover {
+            box-shadow: 0 0 1rem #ff4e6a;
+        }
         
         .nexmoe-list-item.active {
-            opacity: .9;
             background: #ff4e6a;
-            box-shadow: 0 2px 12px #ff4e6a;
+            box-shadow: 0 0 0.5rem #ff4e6a;
+            transition: all .20s ease-out;
         }
         .nexmoe-list-item i {
             font-size: 22px;
