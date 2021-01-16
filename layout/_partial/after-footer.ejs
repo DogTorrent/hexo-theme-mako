@@ -1,25 +1,30 @@
 <%
 var cdnCombineStr = ""
 var regex = new RegExp("https://cdn.jsdelivr.net/")
-var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.jquery.js, theme.cdn.fancybox.js]
+var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js]
 for (let jsStr of jsList) {
-  if (jsStr) {
-      if (regex.test(jsStr)) {
-      if (!cdnCombineStr) {
-        cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + jsStr.replace(regex,"")
-      } else { 
-        cdnCombineStr += jsStr.replace(regex,",")
-      } 
-    } else { -%>
-      <script src="<%- jsStr %>"></script>
-    <% }
-  }
+	if (jsStr) {
+			if (regex.test(jsStr)) {
+			if (!cdnCombineStr) {
+				cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + jsStr.replace(regex,"")
+			} else { 
+				cdnCombineStr += jsStr.replace(regex,",")
+			} 
+		} else { -%>
+			<script src="<%- jsStr %>"></script>
+		<% }
+	}
 } -%>
 <% if (cdnCombineStr) { -%>
-  <script src="<%- cdnCombineStr %>"></script>
+	<script src="<%- cdnCombineStr %>"></script>
 <% } -%>
 <script src="/js/ejs.min.js"></script>
 <script>
-  hljs.initHighlightingOnLoad();
+	hljs.initHighlightingOnLoad();
+	var pjax = new Pjax({
+		elements: "a[href]:not([href^='#'])", // default is "a[href], form[action]"
+		selectors: ["#nexmoe-content"]
+	})
 </script>
-<%- js_auto_version('js/app') %>   
+<%- partial('_after-footer/' + theme.comment) %>
+<%- js_auto_version('js/app') %>
