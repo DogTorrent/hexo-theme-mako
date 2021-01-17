@@ -1,4 +1,5 @@
 *.log
+.git
 _config.yml
 node_modules
 .idea
