@@ -12,7 +12,7 @@
         requiredFields: '<%= theme.valine.requiredFields %>'.split(','),
         path: window.location.pathname,
     };
-    var load_valine = function () {
+    function load_valine() {
         var valine = new Valine(option);
     };
     load_valine();

@@ -33,22 +33,21 @@ function setListItemClass() {
     }
   }
 };
+setListItemClass();
 
 function addNexmoeAlbumClass() {
   $("table")
     .has("img")
     .addClass("nexmoe-album");
 }
+addNexmoeAlbumClass();
 
 function search() {
   window.open($("#search_form").attr("action_e") + " " + $("#search_value").val());
   return false;
 }
 
-setListItemClass();
-
-document.addEventListener('pjax:complete', function(){
-	var scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script");
+function reloadJs(scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script")){
 	for (var element of scriptsToBeReload) {
 		var id = element.id || "";
 		var src = element.src || "";
@@ -63,6 +62,11 @@ document.addEventListener('pjax:complete', function(){
 		if (code !== "") { script.appendChild(document.createTextNode(code)); }
 		parent.appendChild(script);
 	}
+}
+
+document.addEventListener('pjax:complete', function(){
+	var scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script");
+	reloadJs(scriptsToBeReload);
 	setListItemClass();
 	addNexmoeAlbumClass();
 	document.querySelectorAll('pre code').forEach((block) => {
