@@ -65,10 +65,10 @@ function reloadJs(scriptsToBeReload=document.querySelectorAll("script.pjax-reloa
 }
 
 document.addEventListener('pjax:send', function(){
-  if(topbar) topbar.show();
+  if(topbar) topbar.show(); //pjax换页时显示顶部进度条
 });
 document.addEventListener('pjax:complete', function(){
-  if(topbar) topbar.hide();
+  if(topbar) topbar.hide(); //pjax换页完成后隐藏顶部进度条
 	var scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script");
 	reloadJs(scriptsToBeReload);
 	setListItemClass();
@@ -80,7 +80,14 @@ document.addEventListener('pjax:complete', function(){
   }
 });
 
-if(topbar){
+//加载完js就执行的部分
+hljs.initHighlightingOnLoad();
+var pjax = new Pjax({
+    elements: "a[href]:not([href^='#'])", // default is "a[href], form[action]"
+    selectors: ["#nexmoe-content", "title"],
+    cacheBust: false, // 不重载
+})
+if(topbar){ //顶部进度条颜色，和css中主题色一致
   var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR')
   var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG')
   var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB')

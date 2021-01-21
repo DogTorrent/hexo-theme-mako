@@ -20,12 +20,5 @@ for (let jsStr of jsList) {
     <script src="<%- cdnCombineStr %>"></script>
 <% } -%>
 <script src="/js/ejs.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-    var pjax = new Pjax({
-        elements: "a[href]:not([href^='#'])", // default is "a[href], form[action]"
-        selectors: ["#nexmoe-content", "title"],
-    })
-</script>
 <%- partial('_after-footer/' + theme.comment) %>
 <%- js_auto_version('js/app') %>
