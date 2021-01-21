@@ -84,7 +84,7 @@ article pre code::after {
 article a {
 	-webkit-transition: all .35s ease-out;
 	transition: all .35s ease-out;
-	color: #ff4e6a;
+	color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
 	text-decoration: none;
 	word-wrap: break-word;
 	position: relative;
@@ -106,7 +106,7 @@ article a:hover::after {
 }
 
 article a:hover, article a:focus {
-	color: #ff4e6a
+	color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))}
 }
 
 article p {
@@ -199,7 +199,7 @@ article h4:before, article h5:before, article h6:before {
 	display: inline-block;
 	width: 1em;
 	content: '#';
-	color: #ff4e6a
+	color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))}
 }
 
 article h1 {
@@ -227,13 +227,13 @@ article h2:after {
 	transition: all .35s ease-out;
 	content: "";
 	position: absolute;
-	background: rgba(255, 78, 106, 1);
+	background: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
 	width: 1em;
 	height: 5px;
 	bottom: -3px;
 	left: 0;
 	border-radius: 10px;
-	box-shadow: 0 2px 12px rgba(255, 78, 106, .85);
+	box-shadow: 0 2px 12px @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),calc(var(--themeColorA) / 1.2))};
 }
 
 article h2:hover:after {
@@ -348,8 +348,8 @@ article > ol > li::before {
     text-align: center;
     border-radius: 8px;
     line-height: 1.6rem;
-    background-color: rgba(255,78,106,.1);
-    color: #ff4e6a;
+    background-color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),calc(var(--themeColorA) / 10))};
+    color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
 }
 
 article li {
