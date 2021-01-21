@@ -1,7 +1,8 @@
 <%
 var cdnCombineStr = ""
 var regex = new RegExp("https://cdn.jsdelivr.net/")
-var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js]
+var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.topbar.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js]
+jsList.push.apply(jsList, theme.cdn.more.js)
 for (let jsStr of jsList) {
     if (jsStr) {
         if (regex.test(jsStr)) {

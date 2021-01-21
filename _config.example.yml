@@ -32,7 +32,13 @@ cdn: # 这里可以修改站点使用的库的CDN
   valine:
     js: https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js
   pjax:
-    js: https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js
+    js: https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js
+  topbar:
+    js: https://cdn.jsdelivr.net/gh/buunguyen/topbar@0.1.3/topbar.min.js
+  more:
+    js: # 其他js链接，可以设置多个
+      # - https://xxxxx.xxx/example1
+      # - https://xxxxx.xxx/example2
 
 menu:
   首页: 

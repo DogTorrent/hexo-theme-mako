@@ -64,12 +64,32 @@ function reloadJs(scriptsToBeReload=document.querySelectorAll("script.pjax-reloa
 	}
 }
 
+document.addEventListener('pjax:send', function(){
+  if(topbar) topbar.show();
+});
 document.addEventListener('pjax:complete', function(){
+  if(topbar) topbar.hide();
 	var scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script");
 	reloadJs(scriptsToBeReload);
 	setListItemClass();
-	addNexmoeAlbumClass();
-	document.querySelectorAll('pre code').forEach((block) => {
-		hljs.highlightBlock(block);
-	});
+  addNexmoeAlbumClass();
+  if(hljs){
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
 });
+
+if(topbar){
+  var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR')
+  var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG')
+  var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB')
+  var themeColorA=getComputedStyle(document.documentElement).getPropertyValue('--themeColorA')*0.7
+  var colorStr='rgba('+themeColorR+',' +themeColorG+','  +themeColorB+','  +themeColorA+')'
+  topbar.config({
+    barColors: {
+      '0': colorStr,
+      '1.0': colorStr
+    }
+  })
+}
