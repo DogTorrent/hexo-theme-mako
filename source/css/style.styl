@@ -2,10 +2,7 @@ $gutter = 25px
 $radius = 15px
 
 :root{
-    --themeColorR: 255;
-    --themeColorG: 78;
-    --themeColorB: 106;
-    --themeColorA: 1;
+    --themeColor: 255, 78, 106;
 }
 
 @import '_partial/archives.styl';
@@ -156,12 +153,12 @@ body {
         }
 
         .nexmoe-list-item.active:hover {
-            box-shadow: 0 0 1rem @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+            box-shadow: 0 0 1rem @css {rgba(var(--themeColor), 1)};
         }
         
         .nexmoe-list-item.active {
-            background: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
-            box-shadow: 0 0 0.5rem @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+            background: @css {rgba(var(--themeColor), 1)};
+            box-shadow: 0 0 0.5rem @css {rgba(var(--themeColor), 1)};
             transition: all .20s ease-out;
         }
         .nexmoe-list-item i {
@@ -210,14 +207,14 @@ body {
                     }
                 }
                 .category-list-count {
-                    background-color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),calc(var(--themeColorA) * 0.1))}
+                    background-color: @css {rgba(var(--themeColor), 0.1)}
                     display: inline-block;
                     width: 26px;
                     height: 26px;
                     line-height: 26px;
                     text-align: center;
                     border-radius: 100%;
-                    color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+                    color: @css {rgba(var(--themeColor), 1)};
                     position: absolute;
                     right: 10px;
                     top: 10px;
@@ -249,7 +246,7 @@ body {
         white-space: normal;
         margin-bottom: 10px;
         a {
-            color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+            color: @css {rgba(var(--themeColor), 1)};
         }
     }
     .nexmoe-copyright {
@@ -260,7 +257,7 @@ body {
         font-size: 0.8rem;
         margin-bottom: 20px;
         a {
-            color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+            color: @css {rgba(var(--themeColor), 1)};
         }
     }
 }
@@ -297,9 +294,9 @@ body {
             }
             .current {
                 color: #fff;
-                background: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+                background: @css {rgba(var(--themeColor), 1)};
                 opacity: .9;
-                box-shadow: 0 2px 12px @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+                box-shadow: 0 2px 12px @css {rgba(var(--themeColor), 1)};
             }
         }
         .nexmoe-page-nav > * {
@@ -420,7 +417,7 @@ body {
                 line-height: 1.5em;
                 position: relative;
                 a {
-                    color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+                    color: @css {rgba(var(--themeColor), 1)};
                 }
             }
         }
@@ -492,13 +489,13 @@ body {
 }
 
 article .mdui-btn {
-	background-color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+	background-color: @css {rgba(var(--themeColor), 1)};
 	color: #fff;
 	border-radius: 10px;
 }
 
 article .mdui-btn:focus, article .mdui-btn:hover {
-	background-color: @css {rgba(var(--themeColorR),var(--themeColorG),var(--themeColorB),var(--themeColorA))};
+	background-color: @css {rgba(var(--themeColor), 1)};
 	color: #fff;
 }
 

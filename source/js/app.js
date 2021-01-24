@@ -64,7 +64,6 @@ function highlightCodes() {
       });
     }
   }else if(typeof hljs != "undefined") {
-    hljs.initHighlightingOnLoad();
     document.querySelectorAll('pre code').forEach((block) => {
       hljs.highlightBlock(block);
     });
@@ -94,10 +93,10 @@ document.addEventListener('pjax:send', function(){
 });
 document.addEventListener('pjax:complete', function(){
   if(typeof topbar != "undefined") topbar.hide(); //pjax换页完成后隐藏顶部进度条
-  highlightCodes();
 	reloadJs();
 	setListItemClass();
   addNexmoeAlbumClass();
+  highlightCodes();
 });
 
 //加载完js就执行的部分
@@ -107,11 +106,8 @@ var pjax = new Pjax({
     cacheBust: false, // 不重载
 })
 if(typeof topbar != "undefined"){ //顶部进度条颜色，和css中主题色一致
-  var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR');
-  var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG');
-  var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB');
-  var themeColorA=getComputedStyle(document.documentElement).getPropertyValue('--themeColorA')*0.7;
-  var colorStr='rgba('+themeColorR+',' +themeColorG+','  +themeColorB+','  +themeColorA+')';
+  var themeColor=getComputedStyle(document.documentElement).getPropertyValue('--themeColor');
+  var colorStr='rgba('+themeColor + ','  + 0.7 +')';
   topbar.config({
     barColors: {
       '0': colorStr,
