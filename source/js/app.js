@@ -47,6 +47,30 @@ function search() {
   return false;
 }
 
+function highlightCodes() {
+  if(Prism) {
+    Prism.highlightAll();
+    if(Prism.plugins.NormalizeWhitespace){
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+        'remove-trailing': true,
+        'remove-indent': true,
+        'left-trim': true,
+        'right-trim': true,
+        // 'break-lines': 80,
+        // 'indent': 2,
+        // 'remove-initial-line-feed': false,
+        'tabs-to-spaces': 4,
+        // 'spaces-to-tabs': 4
+      });
+    }
+  }else if(hljs) {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
+}
+highlightCodes();
+
 function reloadJs(scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script")){
 	for (var element of scriptsToBeReload) {
 		var id = element.id || "";
@@ -69,30 +93,24 @@ document.addEventListener('pjax:send', function(){
 });
 document.addEventListener('pjax:complete', function(){
   if(topbar) topbar.hide(); //pjax换页完成后隐藏顶部进度条
-	var scriptsToBeReload=document.querySelectorAll("script.pjax-reload, .pjax-reload script");
-	reloadJs(scriptsToBeReload);
+  highlightCodes();
+	reloadJs();
 	setListItemClass();
   addNexmoeAlbumClass();
-  if(hljs){
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  }
 });
 
 //加载完js就执行的部分
-hljs.initHighlightingOnLoad();
 var pjax = new Pjax({
     elements: "a[href]:not([href^='#'])", // default is "a[href], form[action]"
     selectors: ["#nexmoe-content", "title"],
     cacheBust: false, // 不重载
 })
 if(topbar){ //顶部进度条颜色，和css中主题色一致
-  var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR')
-  var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG')
-  var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB')
-  var themeColorA=getComputedStyle(document.documentElement).getPropertyValue('--themeColorA')*0.7
-  var colorStr='rgba('+themeColorR+',' +themeColorG+','  +themeColorB+','  +themeColorA+')'
+  var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR');
+  var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG');
+  var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB');
+  var themeColorA=getComputedStyle(document.documentElement).getPropertyValue('--themeColorA')*0.7;
+  var colorStr='rgba('+themeColorR+',' +themeColorG+','  +themeColorB+','  +themeColorA+')';
   topbar.config({
     barColors: {
       '0': colorStr,

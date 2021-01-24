@@ -1,24 +1,13 @@
 <%
-var cdnCombineStr = ""
-var regex = new RegExp("https://cdn.jsdelivr.net/")
-var jsList = [theme.cdn.mdui.js, theme.cdn.highlight.js, theme.cdn.lazysizes.js, theme.cdn.topbar.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js]
-jsList.push.apply(jsList, theme.cdn.more.js)
-for (let jsStr of jsList) {
-    if (jsStr) {
-        if (regex.test(jsStr)) {
-            if (!cdnCombineStr) {
-                cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + jsStr.replace(regex,"")
-            } else { 
-                cdnCombineStr += jsStr.replace(regex,",")
-            } 
-        } else { -%>
-            <script src="<%- jsStr %>"></script>
-        <% }
-    }
-} -%>
-<% if (cdnCombineStr) { -%>
-    <script src="<%- cdnCombineStr %>"></script>
-<% } -%>
-<script src="/js/ejs.min.js"></script>
-<%- partial('_after-footer/' + theme.comment) %>
-<%- js_auto_version('js/app') %>
+if (theme.highlight == 'prismjs') { -%>
+    <script src="<%- theme.cdn.prismjs.js.core %>"></script>
+    <script src="<%- theme.cdn.prismjs.js.autoloader %>"></script>
+<% } else if (theme.highlight == 'hljs') { -%>
+    <script src="<%- theme.cdn.hljs.js %>"></script>
+<% } 
+var jsList = [theme.cdn.mdui.js, theme.cdn.lazysizes.js, theme.cdn.topbar.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js];
+jsList.push.apply(jsList, theme.cdn.more.js);
+-%>
+<%- combine_jsdelivr_cdn(jsList); %>
+<%- partial('_after-footer/' + theme.comment); %>
+<%- js_auto_version('js/app'); %>

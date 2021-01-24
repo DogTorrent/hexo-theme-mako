@@ -28,28 +28,8 @@
   <%- partial('_partial/site-verification') %>
   <link rel="shortcut icon" href="<%= theme.favicon.href %>" type="<%= theme.favicon.type %>" />
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-
-  <% 
-  var cdnCombineStr = ""
-  var regex = new RegExp("https://cdn.jsdelivr.net/")
-  var cssList = [theme.cdn.highlight.css, theme.cdn.fancybox.css]
-  for (let cssStr of cssList) {
-    if (cssStr) {
-      if (regex.test(cssStr)) {
-        if (!cdnCombineStr) {
-          cdnCombineStr = "https://cdn.jsdelivr.net/combine/" + cssStr.replace(regex,"")
-        } else { 
-          cdnCombineStr += cssStr.replace(regex,",")
-        } 
-      } else { -%>
-        <link rel="stylesheet" href="<%- cssStr %>" crossorigin>
-      <% }
-    }
-  } -%>
-  <% if (cdnCombineStr) { -%>
-    <link rel="stylesheet" href="<%- cdnCombineStr %>" crossorigin>
-  <% } -%>
-  
+  <% var cssList = [theme.cdn[theme.highlight].css, theme.cdn.fancybox.css] -%>
+  <%- combine_jsdelivr_cdn(cssList); %>
   <link rel="stylesheet" href="<%- theme.cdn.mdui.css %>" crossorigin>
   <% if (theme.iconlib) { -%>
     <link rel="stylesheet" href="<%= theme.iconlib %>">
