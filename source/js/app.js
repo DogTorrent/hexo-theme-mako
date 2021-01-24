@@ -48,9 +48,9 @@ function search() {
 }
 
 function highlightCodes() {
-  if(Prism) {
+  if(typeof Prism != "undefined") {
     Prism.highlightAll();
-    if(Prism.plugins.NormalizeWhitespace){
+    if(typeof Prism.plugins.NormalizeWhitespace != "undefined"){
       Prism.plugins.NormalizeWhitespace.setDefaults({
         'remove-trailing': true,
         'remove-indent': true,
@@ -63,7 +63,8 @@ function highlightCodes() {
         // 'spaces-to-tabs': 4
       });
     }
-  }else if(hljs) {
+  }else if(typeof hljs != "undefined") {
+    hljs.initHighlightingOnLoad();
     document.querySelectorAll('pre code').forEach((block) => {
       hljs.highlightBlock(block);
     });
@@ -89,10 +90,10 @@ function reloadJs(scriptsToBeReload=document.querySelectorAll("script.pjax-reloa
 }
 
 document.addEventListener('pjax:send', function(){
-  if(topbar) topbar.show(); //pjax换页时显示顶部进度条
+  if(typeof topbar != "undefined") topbar.show(); //pjax换页时显示顶部进度条
 });
 document.addEventListener('pjax:complete', function(){
-  if(topbar) topbar.hide(); //pjax换页完成后隐藏顶部进度条
+  if(typeof topbar != "undefined") topbar.hide(); //pjax换页完成后隐藏顶部进度条
   highlightCodes();
 	reloadJs();
 	setListItemClass();
@@ -105,7 +106,7 @@ var pjax = new Pjax({
     selectors: ["#nexmoe-content", "title"],
     cacheBust: false, // 不重载
 })
-if(topbar){ //顶部进度条颜色，和css中主题色一致
+if(typeof topbar != "undefined"){ //顶部进度条颜色，和css中主题色一致
   var themeColorR=getComputedStyle(document.documentElement).getPropertyValue('--themeColorR');
   var themeColorG=getComputedStyle(document.documentElement).getPropertyValue('--themeColorG');
   var themeColorB=getComputedStyle(document.documentElement).getPropertyValue('--themeColorB');
