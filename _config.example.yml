@@ -1,6 +1,6 @@
-avatar: https://cdn.jsdelivr.net/gh/DogTorrent/assets@image/2021/01/20210109012241.webp # 头像
+avatar: https://mako.cn-sh2.ufileos.com/img/2021/01/20210109012241.webp # 头像
 background: # 既是博客的背景，又是文章默认头图
-  path: https://cdn.jsdelivr.net/gh/DogTorrent/assets@image/2021/01/20210109012311.webp
+  path: https://mako.cn-sh2.ufileos.com/img/2021/01/20210109012311.webp
   width: 1773
   height: 997
 favicon:
