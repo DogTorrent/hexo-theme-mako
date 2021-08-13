@@ -74,6 +74,17 @@ article pre code::after {
 	background: #282c34;
 }
 
+article :not(pre)>code {
+	position: relative;
+	border: none;
+	border-radius: 0;
+	font-size: 100%;
+    font-family: Consolas;
+	background-color: @css {rgba(var(--themeColor), 0.1)};
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
 article a {
 	-webkit-transition: all .35s ease-out;
 	transition: all .35s ease-out;
