@@ -1,13 +1,13 @@
 <%
-if (theme.highlight == 'prismjs') { -%>
-    <script src="<%- theme.cdn.prismjs.js.core %>"></script>
-    <script src="<%- theme.cdn.prismjs.js.autoloader %>"></script>
-<% } else if (theme.highlight == 'hljs') { -%>
-    <script src="<%- theme.cdn.hljs.js %>"></script>
-<% } 
-var jsList = [theme.cdn.mdui.js, theme.cdn.lazysizes.js, theme.cdn.topbar.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.pjax.js];
+var jsList = [theme.cdn.mdui.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.lazysizes.js, theme.cdn.pjax.js, theme.cdn.topbar.js];
 jsList.push.apply(jsList, theme.cdn.more.js);
 -%>
-<%- combine_jsdelivr_cdn(jsList); %>
-<%- partial('_after-footer/' + theme.comment); %>
+<%- combine_jsdelivr_cdn(jsList, 'defer'); %>
+<% if (theme.highlight == 'prismjs') { -%>
+    <script src="<%- theme.cdn.prismjs.js.core %>" defer></script>
+    <script src="<%- theme.cdn.prismjs.js.autoloader %>" defer></script>
+<% } else if (theme.highlight == 'hljs') { -%>
+    <script src="<%- theme.cdn.hljs.js %>" defer></script>
+<% } -%>
 <%- js_auto_version('js/app'); %>
+<%- partial('_after-footer/' + theme.comment); %>

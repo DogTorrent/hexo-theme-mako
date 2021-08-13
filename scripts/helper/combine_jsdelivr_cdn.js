@@ -1,6 +1,6 @@
 'use strict';
 
-function combineJsd(strList) {
+function combineJsd(strList, options='') {
     var cdnCombineJs = "";
     var cdnCombineCss = "";
     var result = "";
@@ -29,10 +29,10 @@ function combineJsd(strList) {
         }
     }
     if (cdnCombineJs) { 
-        result += `<script src="${cdnCombineJs}"></script> \n `;
+        result += `<script src="${cdnCombineJs}" ${options}></script> \n `;
     }
     if (cdnCombineCss) {
-        result += `<link rel="stylesheet" href="${cdnCombineCss}" crossorigin> \n `;
+        result += `<link rel="stylesheet" href="${cdnCombineCss} ${options}" crossorigin> \n `;
     }
     return result.trim();
 }

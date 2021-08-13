@@ -32,7 +32,7 @@
   <%- combine_jsdelivr_cdn(cssList); %>
   <link rel="stylesheet" href="<%- theme.cdn.mdui.css %>" crossorigin>
   <% if (theme.iconlib) { -%>
-    <link rel="stylesheet" href="<%= theme.iconlib %>">
+    <link rel="preload" as="style" href="<%= theme.iconlib %>" onload="this.rel='stylesheet'">
   <% } -%>
   <%- css_auto_version('css/style') %>
 </head>
@@ -46,7 +46,7 @@
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
         <div class="mdui-toolbar-spacer"></div>
         <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="<%- url_for() %>" title="<%= config.author || config.title %>" class="mdui-btn mdui-btn-icon"><img src="<%= theme.avatar %>" alt="<%= config.author || config.title %>"></a>
+        <a href="<%- url_for() %>" title="<%= config.author || config.title %>" class="mdui-btn mdui-btn-icon"><%- image_auto_lazyload(`<img src="${theme.avatar}" alt="${config.author || config.title}">` %></a>
        </div>
     </div>
   </div>

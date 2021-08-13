@@ -1,7 +1,7 @@
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='<%- theme.cdn.valine.js %>'></script>
-<script class='pjax-reload'>
-    var option = {
+<script>
+  async function loadValine() {
+    if (typeof Valine === "function") {
+      var valine = new Valine({
         el: '.valine',
         appId: '<%= theme.valine.appId %>',
         appKey: '<%= theme.valine.appKey %>',
@@ -11,9 +11,13 @@
         recordIP: <%= theme.valine.recordIP %>,
         requiredFields: '<%= theme.valine.requiredFields %>'.split(','),
         path: window.location.pathname,
-    };
-    function load_valine() {
-        var valine = new Valine(option);
-    };
-    load_valine();
+      });
+    }
+    else {
+      loadScript("//cdn1.lncld.net/static/js/3.0.4/av-min.js", ()=>{loadScript('<%- theme.cdn.valine.js %>', loadValine);})
+    }
+  };
+</script>
+<script class='pjax-reload'>
+  loadValine();
 </script>
