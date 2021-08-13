@@ -5,7 +5,7 @@
             theme.widgetLink.forEach(widget => { %>
             <li>
                 <a href="<%- widget.link %>" target="_blank" >
-                    <%- image_auto_lazyload(`<img src="${widget.img}" alt="${widget.title}">` %>
+                    <%- image_auto_lazyload(`<img src="${widget.img}" alt="${widget.title}">`) %>
                     <p><%- widget.title %></p>
                 </a>
             </li>
