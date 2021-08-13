@@ -1,24 +1,8 @@
-const getRealPath = (pathname, desc = false) => {
-  if (!pathname) {
-    pathname = window.location.pathname;
-  }
-  let names = pathname.split("/");
-  if (desc === false) {
-    for (let i = names.length - 1; i >= 0; --i) {
-      let name = names[i].trim();
-      if (name.length > 0 && name !== "/" && name !== "index.html") {
-        return name;
-      }
-    }
-  } else {
-    for (let i = 0; i < names.length; ++i) {
-      let name = names[i].trim();
-      if (name.length > 0 && name !== "/" && name !== "index.html") {
-        return name;
-      }
-    }
-  }
-  return "/";
+const getRealPath = (pathname = window.location.pathname) => {
+  pathname = pathname.replace(/\/(index\.html)?(\?.*)?$/, "/")
+  pathname = pathname.replace(/^https?:\/\//,"")
+  if(!pathname.endsWith("/")) pathname = pathname + "/"
+  return pathname
 };
 
 function search() {
@@ -27,12 +11,10 @@ function search() {
 }
 
 function loadScript(url, callback){
-  // Adding the script tag to the head as suggested before
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = url;
   script.onload = callback;
-
   // Fire the loading
   document.body.appendChild(script);
 }
@@ -69,10 +51,10 @@ function setTopBarStyle(){
 
 function setListItemClass() {
   let links = document.querySelectorAll(".nexmoe-list-item");
-  let rootRealPath = getRealPath(window.location.pathname, true);
+  let rootRealPath = getRealPath(window.location.pathname);
   for (let link of links) {
     let linkPath = link.getAttribute("href");
-    if (linkPath && getRealPath(linkPath, true) === rootRealPath) {
+    if (linkPath && getRealPath(linkPath) === rootRealPath) {
       link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
     } else {
       link.className = "nexmoe-list-item mdui-list-item mdui-ripple";

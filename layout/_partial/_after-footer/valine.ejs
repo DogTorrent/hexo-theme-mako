@@ -14,10 +14,12 @@
       });
     }
     else {
-      loadScript("//cdn1.lncld.net/static/js/3.0.4/av-min.js", ()=>{loadScript('<%- theme.cdn.valine.js %>', loadValine);})
+      loadScript("//cdn1.lncld.net/static/js/3.0.4/av-min.js", () => { loadScript('<%- theme.cdn.valine.js %>', loadValine); })
     }
   };
 </script>
-<script class='pjax-reload'>
-  loadValine();
+<script class="pjax-reload">
+  if(getRealPath()!=="/"){
+    loadValine();
+  }
 </script>
