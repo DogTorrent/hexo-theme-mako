@@ -40,13 +40,15 @@
 <body class="mdui-drawer-body-left">
   <%- partial('_partial/_analytics/gtm-body') %>
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(<%= theme.background.path %>)"></div>
+    <div class="nexmoe-bg" style="background-image: url('<%= theme.background.path %>')"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
         <div class="mdui-toolbar-spacer"></div>
         <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="<%- url_for() %>" title="<%= config.author || config.title %>" class="mdui-btn mdui-btn-icon"><%- image_auto_lazyload(`<img src="${theme.avatar}" alt="${config.author || config.title}">` %></a>
+        <a href="<%- url_for() %>" title="<%= config.author || config.title %>" class="mdui-btn mdui-btn-icon">
+          <%- image_auto_lazyload(`<img src="${theme.avatar}" alt="${config.author || config.title}">`) %>
+        </a>
        </div>
     </div>
   </div>
