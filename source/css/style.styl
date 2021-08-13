@@ -22,6 +22,12 @@ body {
     max-width: 1200px;
     margin: auto!important;
 }
+@media screen and (min-width:1023px) {
+    //小屏幕下没有这个属性，body直接贴边，所以这里设定只在非小屏幕的情况下才有这个属性
+    body{
+        padding-left: 240px;
+    }
+}
 .medium-zoom-overlay {
     z-index: 9999;
 }
@@ -261,7 +267,7 @@ body {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     #nexmoe-header{
         margin-left: 0;
         .mdui-drawer {
@@ -433,7 +439,7 @@ body {
     display: table;
     content: ' ';
 }
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1023px) {
     #nexmoe-content {
         .nexmoe-primary {
             width: 100%;
@@ -445,45 +451,12 @@ body {
         }
     }
 }
-@media screen and (min-width:1024px) {
-    body {
-        padding-left: 80px;
-    }
+@media screen and (min-width:1023px) {
+    // 因为mdui1.0.1的drawer收回时会添加.mdui-drawer-close并设置样式，使得全屏->小窗->展开再收回->回到全屏时drawer会错位
+    // 经过研究，mdui设置了多种@media下针对.mdui-drawer-close的样式，都为translateX(-xxx)，所以这里将其设为0，以忽略mdui带来的css的影响
     #nexmoe-header .mdui-drawer-close {
-        -webkit-transform: translateX(-160px);
-        transform: translateX(-160px);
-        .nexmoe-avatar {
-            padding: 16px;
-            width: 80px;
-            margin-left: 160px;
-            margin-top: 8px;
-        }
-        .nexmoe-count {
-            padding: 16px;
-            width: 80px;
-            margin-left: 160px;
-            display: block;
-        }
-        .nexmoe-count div {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .nexmoe-count div:last-child {
-            margin-bottom: 0;
-        }
-        .mdui-list {
-            margin-left: 160px;    
-        }
-        .nexmoe-list-item  {
-            padding: 0 17px;
-            color: #9ca2a8;
-        }
-        .mdui-list-item-icon~.mdui-list-item-content {
-            margin-left: 32px;
-        }
-        .nexmoe-list {
-            padding: 8px 10px;
-        }
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }
 
@@ -546,7 +519,7 @@ font.douyin {
     top: 0;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1023px) {
 	.nexmoe-post-right {
         margin: $gutter 0px;
         text-align: left;
