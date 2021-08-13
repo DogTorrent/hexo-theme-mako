@@ -29,8 +29,8 @@
   <link rel="shortcut icon" href="<%= theme.favicon.href %>" type="<%= theme.favicon.type %>" />
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% var cssList = [theme.cdn[theme.highlight].css, theme.cdn.fancybox.css] -%>
-  <%- combine_jsdelivr_cdn(cssList); %>
-  <link rel="stylesheet" href="<%- theme.cdn.mdui.css %>" crossorigin>
+  <link rel="preload" as="style" href="<%- combine_jsdelivr_link(cssList) %>" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="<%- theme.cdn.mdui.css %>"  onload="this.rel='stylesheet'" crossorigin>
   <% if (theme.iconlib) { -%>
     <link rel="preload" as="style" href="<%= theme.iconlib %>" onload="this.rel='stylesheet'">
   <% } -%>

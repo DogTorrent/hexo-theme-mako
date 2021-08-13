@@ -2,7 +2,7 @@
 var jsList = [theme.cdn.mdui.js, theme.cdn.jquery.js, theme.cdn.fancybox.js, theme.cdn.lazysizes.js, theme.cdn.pjax.js, theme.cdn.topbar.js];
 jsList.push.apply(jsList, theme.cdn.more.js);
 -%>
-<%- combine_jsdelivr_cdn(jsList, 'defer'); %>
+<script src="<%- combine_jsdelivr_link(jsList) %>" defer></script>
 <% if (theme.highlight == 'prismjs') { -%>
     <script src="<%- theme.cdn.prismjs.js.core %>" defer></script>
     <script src="<%- theme.cdn.prismjs.js.autoloader %>" defer></script>
