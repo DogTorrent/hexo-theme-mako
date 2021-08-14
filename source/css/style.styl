@@ -480,6 +480,9 @@ body {
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
+    #nexmoe-header .mdui-drawer {
+        max-width: 320px
+    }
 }
 
 article .mdui-btn {
@@ -562,29 +565,42 @@ font.douyin {
     }
 }
 
-.nexmoe-post-right .nexmoe-toc {
-    margin-left: 16px;
-    width: 240px;
-    text-align: left;
+.mdui-fab-wrapper {
+    margin-bottom: 85px;
 }
 
-.nexmoe-post-right .nexmoe-toc a {
+.side-tools .post-toc {
+    width: 240px;
+    text-align: left;
+    opacity: 0;
+    transition: transform 0.2s ease-in-out
+    position: relative;
+    right: -100%;
+    transform: translateX(-100%) scale(0);
+    background-color: white
+    border-radius: 5px
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.side-tools .mdui-fab-dial-show .post-toc {
+    transform: translateX(-100%) scale(1);
+    opacity: 1;
+    transition: transform 0.2s ease-in-out
+}
+
+.side-tools .post-toc a {
     color: rgba(0,0,0,.6);
 }
 
-.nexmoe-post-right .nexmoe-toc ol {
-    padding-left: 1em;
+.side-tools .post-toc ol {
+    padding: 0;
 }
 
-.nexmoe-post-right .nexmoe-toc li {
-    margin: 1em 0;
+.side-tools .post-toc li {
+    padding: 1em;
 }
 
-.nexmoe-post-right .nexmoe-toc > ol {
-    padding-left: 0;
-}
-
-.nexmoe-toc * {
+.side-tools .post-toc * {
     list-style: none;
 }
 

@@ -13,18 +13,6 @@
   
   <%- partial('_partial/_post/meta') %>
 
-  <div class="nexmoe-post-right">
-    <% if (page.toc || theme.function.globalToc){ %>
-      <div class="nexmoe-fixed">
-        <div class="nexmoe-valign">
-            <div class="nexmoe-toc">
-                <%- toc(page.content, {list_number: true}) %>
-            </div>
-        </div>
-      </div>
-    <%} %>
-  </div>
-
   <article>
     <%- image_auto_lazyload(page.content) %>
   </article>

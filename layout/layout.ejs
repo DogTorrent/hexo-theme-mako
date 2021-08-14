@@ -58,6 +58,29 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <%- body %>
+            <div class="side-tools">
+                <% if (page.toc || theme.function.globalToc){ %>
+                  <% const toc_obj = toc(page.content, {list_number: true}); %>
+                  <% if (toc_obj.length > 0) { %>
+                    <div class="mdui-fab-wrapper" id="fab" mdui-fab="{trigger: 'click'}">
+                      <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
+                        <i class="mdui-icon material-icons">toc</i>
+                        <i class="mdui-icon mdui-fab-opened material-icons">keyboard_arrow_up</i>
+                      </button>
+                      <div class="mdui-fab-dial">
+                        <div class="post-toc">
+                          <%- toc_obj %>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
+                <%} %>
+                <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top">
+                  <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent">
+                    <i class="mdui-icon material-icons">vertical_align_top</i>
+                  </button>
+                </a>
+        </div>
     </div>
   </div>
   <%- partial('_partial/after-footer') %>
