@@ -21,6 +21,7 @@ a {
 body {
     max-width: 1200px;
     margin: auto!important;
+    //margin-right: calc(100% - 100vw);
 }
 @media screen and (min-width:1023px) {
     //小屏幕下没有这个属性，body直接贴边，所以这里设定只在非小屏幕的情况下才有这个属性
@@ -28,6 +29,27 @@ body {
         padding-left: 240px;
     }
 }
+
+.elegant-scrollbar {
+    scrollbar-color: #aaa transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+.elegant-scrollbar::-webkit-scrollbar-corner, .elegant-scrollbar::-webkit-scrollbar-track {
+    background: 0 0;
+}
+.elegant-scrollbar::-webkit-resizer, .elegant-scrollbar::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 3px;
+}
+.elegant-scrollbar::-webkit-scrollbar-corner, .elegant-scrollbar::-webkit-scrollbar-track {
+    background: 0 0;
+}
+.elegant-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
 .medium-zoom-overlay {
     z-index: 9999;
 }
