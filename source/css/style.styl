@@ -579,25 +579,32 @@ font.douyin {
     z-index: 1;
 }
 
-.side-tools .post-toc {
+.side-tools .post-toc-container {
     width: max-content;
-    max-width: 240px;
-    max-height: 300px;
-    overflow-y: auto;
-    overflow-wrap: break-word;
-    text-align: left;
+    height: max-content;
     transition: transform 0.2s ease-in-out
     position: relative;
     right: -100%;
     transform: translateX(-100%) scale(0);
     transform-origin: bottom right;
-    border-radius: 5px
+    border-radius: $radius
+    padding: 1em;
 }
 
-.side-tools .mdui-fab-dial-show .post-toc {
+.side-tools .mdui-fab-dial-show .post-toc-container {
     transform: translateX(-100%) scale(1);
     transform-origin: bottom right;
     transition: transform 0.2s ease-in-out
+}
+
+.side-tools .post-toc-container .post-toc {
+    width: max-content;
+    height: max-content;
+    max-width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    text-align: left;
 }
 
 .side-tools .post-toc a {
