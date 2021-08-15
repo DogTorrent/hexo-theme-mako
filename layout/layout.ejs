@@ -68,18 +68,17 @@
                         <i class="mdui-icon mdui-fab-opened material-icons">keyboard_arrow_up</i>
                       </button>
                       <div class="mdui-fab-dial">
-                        <div class="post-toc">
+                        <div class="post-toc mdui-card elegant-scrollbar">
+                          <ol style="font-weight: bold;">目录</ol>
                           <%- toc_obj %>
                         </div>
                       </div>
                     </div>
                   <% } %>
                 <%} %>
-                <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top">
-                  <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent">
-                    <i class="mdui-icon material-icons">vertical_align_top</i>
-                  </button>
-                </a>
+                <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent" title="回到顶部" onclick="window.location.href='#'">
+                  <i class="mdui-icon material-icons">vertical_align_top</i>
+                </button>
         </div>
     </div>
   </div>
