@@ -58,25 +58,27 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <%- body %>
-            <div class="side-tools">
-                <% if (page.toc || theme.function.globalToc){ %>
-                  <% const toc_obj = toc(page.content, {list_number: true}); %>
-                  <% if (toc_obj.length > 0) { %>
-                    <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent" mdui-menu="{target: '#menu-toc-container', fixed: true, covered: false}">
-                      <i class="mdui-icon material-icons">toc</i>
-                    </button>
-                    <div class="mdui-menu post-toc-container" id="menu-toc-container">
-                      <div class="post-toc elegant-scrollbar">
-                        <ol style="font-weight: bold;">目录</ol>
-                        <%- toc_obj %>
-                      </div>
-                    </div>
-                  <% } %>
-                <%} %>
-                <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent" title="回到顶部" onclick="window.location.href='#'">
-                  <i class="mdui-icon material-icons">vertical_align_top</i>
-                </button>
-        </div>
+    </div>
+    <div class="post-right">
+      <div class="side-tools">
+        <% if (page.toc || theme.function.globalToc){ %>
+          <% const toc_obj = toc(page.content, {list_number: true}); %>
+          <% if (toc_obj.length > 0) { %>
+            <button class="mdui-fab mdui-ripple mdui-color-pink-accent" mdui-menu="{target: '#menu-toc-container', fixed: true, covered: false}">
+              <i class="mdui-icon material-icons">toc</i>
+            </button>
+            <div class="mdui-menu post-toc-container" id="menu-toc-container">
+              <div class="post-toc elegant-scrollbar">
+                <ol style="font-weight: bold;">目录</ol>
+                <%- toc_obj %>
+              </div>
+            </div>
+          <% } %>
+        <% } %>
+        <button class="mdui-fab mdui-ripple mdui-color-pink-accent" title="回到顶部" onclick="window.location.href='#'">
+          <i class="mdui-icon material-icons">vertical_align_top</i>
+        </button>
+      </div>
     </div>
   </div>
   <%- partial('_partial/after-footer') %>

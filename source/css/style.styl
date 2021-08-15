@@ -565,16 +565,33 @@ font.douyin {
     }
 }
 
+.post-right {
+    text-align: right;
+}
+
+.post-right > * {
+    text-align: right;
+    margin-left: $gutter;
+    margin-right: $gutter;
+}
+@media screen and (max-width:1023px) {
+    .post-right > * {
+    text-align: right;
+    margin-left: 0;
+    margin-right: 0;
+    right: $gutter;
+}
+}
+
 .side-tools > button {
-    margin-top: 24px;
+    margin-top: $gutter;
     //覆盖mdui-wrapper等元素自带的fixed
     position: static !important;
 }
 .side-tools {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
-    display: flex;
+    bottom: $gutter;
+    display: inline-flex;
     flex-direction: column;
     z-index: 1;
 }
