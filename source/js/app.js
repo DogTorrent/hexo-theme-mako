@@ -55,12 +55,45 @@ function setListItemClass() {
   for (let link of links) {
     let linkPath = link.getAttribute("href");
     if (linkPath && getRealPath(linkPath) === rootRealPath) {
-      link.className += " active";
+      link.classList.add("active")
     } else {
-      link.className = link.className.replace(" active", " ");
+      link.classList.remove("active")
     }
   }
 };
+
+function toggleScrollEvent() {
+  let last_known_scroll_pos = 0;
+  var last_scroll_direction = 0;
+  let ticking = false;
+  window.addEventListener('scroll', function(e) {
+    if (!ticking) {
+      let now_scroll_pos = window.scrollY;
+      var now_scroll_direction = 0;
+      window.requestAnimationFrame(function() {
+        now_scroll_direction = last_known_scroll_pos - now_scroll_pos; // now_scroll_direction < 0: down, now_scroll_direction > 0: up
+
+        if(last_scroll_direction!=now_scroll_direction){
+          var buttons = document.querySelectorAll(".side-tools > .mdui-fab");
+          if (now_scroll_direction > 0 || window.matchMedia("screen and (min-width: 1024px)").matches){ //大屏幕下不隐藏
+            buttons.forEach((button,key) => {
+              button.classList.remove("mdui-fab-hide")
+            })
+          }
+          else if(now_scroll_direction < 0){
+            buttons.forEach((button,key) => {
+              button.classList.add("mdui-fab-hide")
+            })
+          }
+          last_scroll_direction = now_scroll_direction;
+        }
+        last_known_scroll_pos = window.scrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
 
 function addNexmoeAlbumClass() {
   $("table")
@@ -119,4 +152,5 @@ window.addEventListener('DOMContentLoaded', ()=>{
   setTopBarStyle();
   highlightCodes();
   togglePjax();
+  toggleScrollEvent();
 })
