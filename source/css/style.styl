@@ -565,9 +565,9 @@ font.douyin {
     }
 }
 
-.side-tools > * {
+.side-tools > button {
     margin-top: 24px;
-    //覆盖mdui-wrapper的fixed
+    //覆盖mdui-wrapper等元素自带的fixed
     position: static !important;
 }
 .side-tools {
@@ -582,26 +582,14 @@ font.douyin {
 .side-tools .post-toc-container {
     width: max-content;
     height: max-content;
-    transition: transform 0.2s ease-in-out
-    position: relative;
-    right: -100%;
-    transform: translateX(-100%) scale(0);
-    transform-origin: bottom right;
     border-radius: $radius
-    padding: 1em;
-}
-
-.side-tools .mdui-fab-dial-show .post-toc-container {
-    transform: translateX(-100%) scale(1);
-    transform-origin: bottom right;
-    transition: transform 0.2s ease-in-out
 }
 
 .side-tools .post-toc-container .post-toc {
     width: max-content;
     height: max-content;
-    max-width: 300px;
-    max-height: 350px;
+    max-width: 280px;
+    max-height: 320px;
     overflow-y: auto;
     overflow-wrap: break-word;
     text-align: left;

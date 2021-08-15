@@ -62,18 +62,13 @@
                 <% if (page.toc || theme.function.globalToc){ %>
                   <% const toc_obj = toc(page.content, {list_number: true}); %>
                   <% if (toc_obj.length > 0) { %>
-                    <div class="mdui-fab-wrapper" id="fab" mdui-fab="{trigger: 'click'}">
-                      <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
-                        <i class="mdui-icon material-icons">toc</i>
-                        <i class="mdui-icon mdui-fab-opened material-icons">keyboard_arrow_up</i>
-                      </button>
-                      <div class="mdui-fab-dial">
-                        <div class="mdui-card post-toc-container">
-                          <div class="post-toc elegant-scrollbar">
-                            <ol style="font-weight: bold;">目录</ol>
-                            <%- toc_obj %>
-                          </div>
-                        </div>
+                    <button class="mdui-fab mdui-ripple mdui-fab-fixed mdui-color-pink-accent" mdui-menu="{target: '#menu-toc-container', fixed: true, covered: false}">
+                      <i class="mdui-icon material-icons">toc</i>
+                    </button>
+                    <div class="mdui-menu post-toc-container" id="menu-toc-container">
+                      <div class="post-toc elegant-scrollbar">
+                        <ol style="font-weight: bold;">目录</ol>
+                        <%- toc_obj %>
                       </div>
                     </div>
                   <% } %>
