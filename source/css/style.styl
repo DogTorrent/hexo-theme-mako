@@ -2,7 +2,7 @@ $gutter = 25px
 $radius = 15px
 
 :root{
-    --themeColor: 255, 78, 106;
+    --themeColor: 255, 128, 171;
 }
 
 @import '_partial/archives.styl';
@@ -24,9 +24,10 @@ body {
     //margin-right: calc(100% - 100vw);
 }
 @media screen and (min-width:1023px) {
-    //小屏幕下没有这个属性，body直接贴边，所以这里设定只在非小屏幕的情况下才有这个属性
     body{
+        //小屏幕下没有这个属性，body直接贴边，所以这里设定只在非小屏幕的情况下才有这个属性
         padding-left: 240px;
+        padding-top: 0 !important;
     }
 }
 
@@ -70,21 +71,16 @@ body {
         left: 0;
         z-index: -1;
     }
-    .mdui-appbar {
-        padding: 10px;
-        display: none;
-        img {
-            width: 100%;
-        }
-    }
-}
 
-@media screen and (max-width: 1023px) {
-    .nexmoe-bg {
-        position: relative;
-    }
     .mdui-appbar {
-        display: block!important;
+        background: @css {rgba(var(--themeColor),1)};
+        color: #fff
+    }
+
+    @media screen and (min-width: 1024px){
+        .mdui-appbar-fixed {
+            transform: translate3d(0,-100%,0) !important;
+        }
     }
 }
 
@@ -102,10 +98,6 @@ body {
         width: 100%;
         font-size:0;
         border-radius: 80px;
-        -webkit-border-radius: 80px;
-         -moz-border-radius: 80px;
-        -webkit-transition: -webkit-transform 1.5s ease-out;
-         -moz-transition: -moz-transform 1.5s ease-out;
         transition: transform 1.5s ease-out;
     }
     .nexmoe-avatar {
@@ -126,8 +118,6 @@ body {
     .nexmoe-count {
         padding: 0 30px;
         margin-bottom: 30px;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         div {
             -webkit-box-flex: 1;
@@ -483,6 +473,9 @@ body {
     #nexmoe-header .mdui-drawer {
         max-width: 320px
     }
+    #nexmoe-header .mdui-drawer:not(.mdui-drawer-open){
+        top: 0;
+    }
 }
 
 article .mdui-btn {
@@ -587,6 +580,12 @@ font.douyin {
     margin-top: $gutter;
     //覆盖mdui-wrapper等元素自带的fixed
     position: static !important;
+    background: #fff;
+    color: #9ca2a8;
+}
+.side-tools > button:hover {
+    background: @css {rgba(var(--themeColor),1)};
+    color: #fff
 }
 .side-tools {
     position: fixed;

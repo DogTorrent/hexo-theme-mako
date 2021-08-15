@@ -37,18 +37,15 @@
   <%- css_auto_version('css/style') %>
 </head>
 
-<body >
+<body class="mdui-loaded mdui-appbar-with-toolbar">
   <%- partial('_partial/_analytics/gtm-body') %>
   <div id="nexmoe-background">
     <div class="nexmoe-bg" style="background-image: url('<%= theme.background.path %>')"></div>
-    <div class="mdui-appbar mdui-shadow-0">
+    <div class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed mdui-appbar-scroll-hide">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
         <div class="mdui-toolbar-spacer"></div>
         <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="<%- url_for() %>" title="<%= config.author || config.title %>" class="mdui-btn mdui-btn-icon">
-          <%- image_auto_lazyload(`<img src="${theme.avatar}" alt="${config.author || config.title}">`) %>
-        </a>
        </div>
     </div>
   </div>
@@ -64,7 +61,7 @@
         <% if (page.toc || theme.function.globalToc){ %>
           <% const toc_obj = toc(page.content, {list_number: true}); %>
           <% if (toc_obj.length > 0) { %>
-            <button class="mdui-fab mdui-ripple mdui-color-pink-accent" mdui-menu="{target: '#menu-toc-container', fixed: true, covered: false}">
+            <button class="mdui-fab mdui-ripple" mdui-tooltip="{content: '目录', position: 'left'}" mdui-menu="{target: '#menu-toc-container', fixed: true, covered: false}">
               <i class="mdui-icon material-icons">toc</i>
             </button>
             <div class="mdui-menu post-toc-container" id="menu-toc-container">
@@ -75,7 +72,7 @@
             </div>
           <% } %>
         <% } %>
-        <button class="mdui-fab mdui-ripple mdui-color-pink-accent" title="回到顶部" onclick="window.location.href='#'">
+        <button class="mdui-fab mdui-ripple" mdui-tooltip="{content: '回到顶部', position: 'left'}" onclick="window.location.href='#'">
           <i class="mdui-icon material-icons">vertical_align_top</i>
         </button>
       </div>

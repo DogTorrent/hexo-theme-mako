@@ -55,9 +55,9 @@ function setListItemClass() {
   for (let link of links) {
     let linkPath = link.getAttribute("href");
     if (linkPath && getRealPath(linkPath) === rootRealPath) {
-      link.className = "active nexmoe-list-item mdui-list-item mdui-ripple";
+      link.className += " active";
     } else {
-      link.className = "nexmoe-list-item mdui-list-item mdui-ripple";
+      link.className = link.className.replace(" active", " ");
     }
   }
 };
