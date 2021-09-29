@@ -1,10 +1,10 @@
-avatar: https://mako.cn-sh2.ufileos.com/img/2021/01/403fd4f0563cd1942ed2c7de3ddb441d.webp # 头像
+avatar: http://dogtorrent-static.test.upcdn.net/img/2021/01/403fd4f0563cd1942ed2c7de3ddb441d.webp # 头像
 background: # 既是博客的背景，又是文章默认头图
-  path: https://mako.cn-sh2.ufileos.com/img/2021/01/14e4dd7e2b871d8aba12b325346033c6.webp
+  path: http://dogtorrent-static.test.upcdn.net/img/2021/01/14e4dd7e2b871d8aba12b325346033c6.webp
   width: 1773
   height: 997
 favicon:
-  href: https://mako.cn-sh2.ufileos.com/img/2021/01/39a0518da591445033837d016584371a.webp # 网站图标
+  href: http://dogtorrent-static.test.upcdn.net/img/2021/01/39a0518da591445033837d016584371a.webp # 网站图标
   type: image/webp # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
