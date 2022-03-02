@@ -9,12 +9,13 @@
         visitor: <%= theme.valine.visitor %>,
         verify: <%= theme.valine.verify %>,
         recordIP: <%= theme.valine.recordIP %>,
+        serverURLs: '<%= theme.valine.serverURLs %>',
         requiredFields: '<%= theme.valine.requiredFields %>'.split(','),
         path: window.location.pathname,
       });
     }
     else {
-      loadScript("//cdn1.lncld.net/static/js/3.0.4/av-min.js", () => { loadScript('<%- theme.cdn.valine.js %>', loadValine); })
+      loadScript("//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js", () => { loadScript('<%- theme.cdn.valine.js %>', loadValine); })
     }
   };
 </script>
