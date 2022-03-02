@@ -120,7 +120,7 @@ comment: valine # 评论框，目前仅支持 valine
 valine: 
   appId: <API_ID> # leancloud application app id
   appKey: <API_Key> # leancloud application app key
-  serverURLs: <REST_API_URL> # leancloud rest api url, for example: blablabla.api.lncldglobal.com
+  serverURLs: <REST_API_URL> # leancloud rest api url, for example: https://blablabla.api.lncldglobal.com
   visitor: false # 文章访问量统计
   requiredFields: [nick,mail] #设置必填项，v1.4.6+可用
   placeholder: 此处留言~ 填写邮箱可以接收回复提醒 # 评论框占位提示符
