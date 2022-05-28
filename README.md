@@ -1,10 +1,6 @@
 <h1 align="center">Mako</h1>
 
-> 修改自 [theme-nexmoe/hexo-theme-nexmoe](https://github.com/theme-nexmoe/hexo-theme-nexmoe)
-
-## 📷 预览图
-
-![Somewhere](example.png)
+> 自用，修改自 [theme-nexmoe/hexo-theme-nexmoe](https://github.com/theme-nexmoe/hexo-theme-nexmoe)
 
 ## 💻 演示
 
@@ -13,8 +9,9 @@
 ## ✨ 特色：
 
 - [x] 常陆茉子天下第一
-- [x] PJAX
-- [ ] 多评论系统
+- [x] 无缝切换
+- [x] 动画优化
+- [x] valine评论
 
 ## 📄 许可证：
 
