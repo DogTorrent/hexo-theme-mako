@@ -1,10 +1,10 @@
-avatar: http://dogtorrent-static.test.upcdn.net/img/2022/05/ded9a383f08cb7878fb7ab2b35df0fdb.jpg # 头像
+avatar: https://i0.wp.com/dogtorrent-static.test.upcdn.net/img/2022/05/ded9a383f08cb7878fb7ab2b35df0fdb.jpg # 头像
 background: # 既是博客的背景，又是文章默认头图
-  path: http://dogtorrent-static.test.upcdn.net/img/2021/01/14e4dd7e2b871d8aba12b325346033c6.webp
+  path: https://i0.wp.com/dogtorrent-static.test.upcdn.net/img/2021/01/14e4dd7e2b871d8aba12b325346033c6.webp
   width: 1773
   height: 997
 favicon:
-  href: http://dogtorrent-static.test.upcdn.net/img/2021/01/39a0518da591445033837d016584371a.webp # 网站图标
+  href: https://i0.wp.com/dogtorrent-static.test.upcdn.net/img/2021/01/39a0518da591445033837d016584371a.webp # 网站图标
   type: image/webp # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
